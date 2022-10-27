@@ -13,7 +13,7 @@ from models.amenity import Amenity
 
 all_classes = {'State': State, 'City': City,
                'User': User, 'Place': Place,
-               #'Review': Review, 'Amenity': Amenity
+               'Review': Review, #'Amenity': Amenity
               }
 
 
@@ -34,13 +34,6 @@ class DBStorage:
             user, password, host, database), pool_pre_ping=True)
         if env == "test":
             Base.metadata.drop_all(self.__engine)
-
-    def all(self, cls=None):
-        """ """
-        classes = {'User': User, 'State': State,
-                   'City': City,# 'Amenity': Amenity,
-                   #'Place': Place, 'Review': Review
-                   }
 
     def all(self, cls=None):
         """ """
