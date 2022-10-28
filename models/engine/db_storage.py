@@ -13,7 +13,7 @@ from models.amenity import Amenity
 
 all_classes = {'State': State, 'City': City,
                'User': User, 'Place': Place,
-               #'Review': Review, 'Amenity': Amenity
+               'Review': Review, #'Amenity': Amenity
               }
 
 
@@ -36,14 +36,7 @@ class DBStorage:
             Base.metadata.drop_all(self.__engine)
 
     def all(self, cls=None):
-        """ """
-        classes = {'User': User, 'State': State,
-                   'City': City,# 'Amenity': Amenity,
-                   #'Place': Place, 'Review': Review
-                   }
-
-    def all(self, cls=None):
-        """ """
+    """ """
         obj_dict = {}
 
         if cls is not None:
@@ -76,3 +69,4 @@ class DBStorage:
         Base.metadata.create_all(self.__engine)
         self.__session = scoped_session(
             sessionmaker(bind=self.__engine, expire_on_commit=False))
+            
