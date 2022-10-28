@@ -36,7 +36,7 @@ class DBStorage:
             Base.metadata.drop_all(self.__engine)
 
     def all(self, cls=None):
-        """ """
+    """ """
         obj_dict = {}
 
         if cls is not None:
@@ -69,3 +69,4 @@ class DBStorage:
         Base.metadata.create_all(self.__engine)
         self.__session = scoped_session(
             sessionmaker(bind=self.__engine, expire_on_commit=False))
+            
