@@ -20,7 +20,7 @@ def HBNB():
     return "HBNB"
 
 
-@app.route("/c/<string:text>")
+@app.route("/c/<text>")
 def c_text(text):
     """Document"""
     text = text.replace("_", " ")
