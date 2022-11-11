@@ -29,10 +29,10 @@ def c_text(text):
 @app.route("/python/<text>")
 def python_text(text="is cool"):
     """Document"""
-    if text:
-        text = text.replace("_", " ")
-        return ("Python {}".format(text))
-        
+    text = text.replace("_", " ")
+    return ("Python {}".format(text))
+
+
 if __name__ == "__main__":
     """Document"""
     app.run(host="0.0.0.0", port="5000")
