@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """Task 2: Script that starts a Flask web application"""
 from flask import Flask
-from markupsafe import escape
 
 
 app = Flask(__name__)
@@ -24,7 +23,7 @@ def HBNB():
 def c_text(text):
     """Document"""
     text = text.replace("_", " ")
-    return f'C {text}'
+    return ("C {}".format(text))
 
 
 if __name__ == "__main__":
