@@ -12,6 +12,7 @@ def hello_HBNB():
     """Document"""
     return "Hello HBNB!"
 
+
 @app.route("/hbnb")
 def HBNB():
     """Document"""
