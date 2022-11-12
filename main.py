@@ -5,6 +5,7 @@
 from models import storage
 from models.state import State
 from models.city import City
+from models.user import User
 
 """
  Objects creations
@@ -26,6 +27,7 @@ city_2_1 = City(state_id=state_2.id, name="Page")
 print("New city: {} in the state: {}".format(city_2_1, state_2))
 city_2_1.save()
 
+user = User()
 
 """
  Verification
