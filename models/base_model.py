@@ -56,9 +56,6 @@ class BaseModel:
         self.updated_at = datetime.now()
         storage.new(self)
         storage.save()
-        if getenv("HBNB_TYPE_STORAGE") != 'db':
-            if self.__dict__.get('_sa_instance_state'):
-                del self.__dict__['_sa_instance_state']
 
     def to_dict(self):
         """Convert instance into dict format"""
