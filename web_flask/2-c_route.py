@@ -3,6 +3,7 @@
 This module starts a Flask web application
 """
 from flask import Flask
+from markupsafe import escape
 
 app = Flask(__name__)
 app.url_map.strict_slashes = False
@@ -21,7 +22,7 @@ def hbnb():
 @app.route("/c/<text>")
 def c_text(text):
     text = text.replace('_', ' ')
-    return f"C {text}\n"
+    return "C {}\n".format(escape(text))
 
 
 if __name__ == "__main__":
