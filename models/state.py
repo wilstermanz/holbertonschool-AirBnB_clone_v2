@@ -20,6 +20,8 @@ class State(BaseModel, Base):
                               )
 
     else:
+        name = ''
+
         @property
         def cities(self):
             """ returns list of City instances with matching state ids"""
