@@ -1,25 +1,27 @@
+
 #!/usr/bin/python3
 """
-This module starts a Flask web application
+something
 """
 from flask import Flask, render_template
-from models import storage, state
-
 app = Flask(__name__)
 app.url_map.strict_slashes = False
 
 
-@app.route("/states_list")
+@app.teardown_appcontext
+def teardown(content):
+    """ call close """
+    import models
+    models.storage.close()
+
+
+@app.route('/states_list')
 def states_list():
-    states = storage.all(state.State)
+    """ print list of states in html page """
+    import models
+    states = models.storage.all(models.state.State)
     return render_template("7-states_list.html", states=states)
 
 
-@app.teardown_appcontext
-def teardown(states_list):
-    """Call close"""
-    storage.close()
-
-
 if __name__ == "__main__":
-    app.run("0.0.0.0", 5000)
+    app.run(host="0.0.0.0", port="5000")
