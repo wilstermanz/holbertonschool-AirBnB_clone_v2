@@ -23,8 +23,6 @@ class FileStorage:
 
     def new(self, obj):
         """Adds new object to storage dictionary"""
-        if obj.__dict__.get('_sa_instance_state'):
-            del obj.__dict__['_sa_instance_state']
         self.all().update({obj.to_dict()['__class__'] + '.' + obj.id: obj})
 
     def save(self):
